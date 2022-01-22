@@ -16,12 +16,9 @@ const AuthorForm = (props) => {
                     Home
                 </Link>
             </div>
-            <div>
-                <h3>Add a new Author:</h3>
-            </div>
         <form onSubmit={e => {handleSubmit(e, {name})}}>
-            <label>Name:</label>
-            <input type="text" onChange = {e => {setName(e.target.value)}} value={name}/>
+            <label>Author Name:</label>
+            <input type="text" className="form-control" onChange = {e => {setName(e.target.value)}} value={name}/>
             <div className="mt-2">
             <CancelButton />
             <input type='submit' value='Submit'/>
