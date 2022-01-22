@@ -9,10 +9,10 @@ const Create = (props) => {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
 
-    const handleSubmit = (e, name) => {
+    const handleSubmit = (e, data) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/new', {name})
+        axios.post('http://localhost:8000/api/new', data)
             .then(res => console.log(res))
             .catch(error => {
                 const errorResponse = error.response.data.errors;

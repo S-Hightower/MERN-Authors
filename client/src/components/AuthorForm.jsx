@@ -5,8 +5,8 @@ import CancelButton from './CancelButton';
 
 const AuthorForm = (props) => {
     
-    const [name, setName] = useState(initName);
     const {handleSubmit, initName} = props;
+    const [name, setName] = useState(initName);
 
     return (
         <div className="container-sm mt-3 mb-5">
@@ -22,8 +22,10 @@ const AuthorForm = (props) => {
         <form onSubmit={e => {handleSubmit(e, {name})}}>
             <label>Name:</label>
             <input type="text" onChange = {e => {setName(e.target.value)}} value={name}/>
+            <div className="mt-2">
             <CancelButton />
             <input type='submit' value='Submit'/>
+            </div>
         </form>
         </div>
     )
