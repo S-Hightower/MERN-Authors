@@ -20,10 +20,10 @@ const Update = props => {
             .catch(error => console.log(error));
     }, [id]);
 
-    const handleSubmit = (e, data) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:8000/api/authors/${id}`, data)
+        axios.put(`http://localhost:8000/api/authors/${id}/edit`, {author})
             .then(res => console.log(res))
             .catch(error => {
                 const errorResponse = error.response.data.errors;
