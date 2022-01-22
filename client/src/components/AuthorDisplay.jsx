@@ -28,7 +28,8 @@ const AuthorDisplay = props => {
             <table className="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Authors & Available Actions</th>
+                    <th scope="col">Authors</th>
+                    <th scope="col">Available Actions</th>
                 </tr>
                 </thead>
                     {props.authors.map((author, index) => {
