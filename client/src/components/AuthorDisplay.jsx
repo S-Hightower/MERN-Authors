@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+import EditButton from '../components/EditButton'
+
 const AuthorDisplay = props => {
 
     const { removeFromDom } = props;
@@ -29,18 +31,18 @@ const AuthorDisplay = props => {
                     <th scope="col">Authors & Available Actions</th>
                 </tr>
                 </thead>
-                <tbody>
-                    <tr>
                     {props.authors.map((author, index) => {
-                        return (<td key={index} className="">
-                            <Link to={`/api/authors/` + author._id}>
-                                {author.name}
-                            </Link>
-                            <button onClick={e => {deleteAuthor(author._id)}} className="btn btn-outline-danger btn-sm">Delete</button>
-                        </td>)
+                        return (
+                        <tbody key={index}>
+                            <tr>
+                            <td>{author.name}</td>
+                            <td>
+                                <EditButton id={author.id} />
+                                <button onClick={e => {deleteAuthor(author._id)}} className="btn btn-outline-danger btn-sm">Delete</button>
+                            </td>
+                            </tr>
+                        </tbody>)
                     })}
-                    </tr>
-                </tbody>
             </table>
         </div>//container
     )
