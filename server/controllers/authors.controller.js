@@ -4,7 +4,7 @@ const Authors = require("../models/authors.model");
     module.exports.findAllAuthors = (req, res) => {
         Authors.find({})
             .then(allAuthors => res.json(allAuthors))
-            .catch(err => res.jsnon({message: "Something went wrong", error: err}))
+            .catch(err => res.json({message: "Something went wrong", error: err}))
     };
 
     //Read One
