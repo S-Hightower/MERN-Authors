@@ -22,7 +22,7 @@ const Create = (props) => {
                 }
                 setErrors(errorArr);
             });
-        history.pushState('/');
+    history.pushState('/');
     };
 
     return (

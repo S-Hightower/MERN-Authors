@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link, useParams, useHistory} from 'react-router-dom';
+import { useParams, useHistory} from 'react-router-dom';
 
 import AuthorForm from "../components/AuthorForm";
 
 const Update = props => {
     const {id} = useParams();
-    const [author, setAuthor] = useState({});
+    const [name, setName] = useState("");
     const [loaded, setLoaded] = useState(false);
     const [errors, setErrors] = useState([]);
     const history = useHistory();
@@ -14,16 +14,17 @@ const Update = props => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/authors/${id}`)
             .then(res => {
-                setAuthor(res.data)
+                setName(res.data)
                 setLoaded(true)
             })
             .catch(error => console.log(error));
     }, [id]);
 
-    const handleSubmit = (e) => {
+    const updateAuthor = e => {
         e.preventDefault();
-
-        axios.put(`http://localhost:8000/api/authors/${id}/edit`, {author})
+        axios.put(`http://localhost:8000/api/authors/${id}/edit`, {
+            name
+        })
             .then(res => console.log(res))
             .catch(error => {
                 const errorResponse = error.response.data.errors;
@@ -39,7 +40,9 @@ const Update = props => {
     return(
         <div>
             {errors.map((error, index) => <p key={index}>{error}</p>)}
-            {loaded && <AuthorForm handleSubmit={handleSubmit} initName={author.name} />}
+            {loaded && (
+            <AuthorForm onSubmit={updateAuthor} initName={props.author.name} />
+            )}
         </div>
     )
 };
