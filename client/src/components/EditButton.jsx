@@ -15,3 +15,5 @@ const EditButton = props => {
 };
 
 export default EditButton;
+
+//this would be more effective as a link disguised as a button

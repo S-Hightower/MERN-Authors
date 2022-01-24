@@ -22,6 +22,8 @@ const Authors = require("../models/authors.model");
             .catch(err => res.status(400).json(err));
     };
 
+//note added runvalidators in update!!!
+
     //Update
     module.exports.updateAuthor = (req, res) => {
         const {name} = req.body;

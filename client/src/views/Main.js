@@ -1,3 +1,5 @@
+//renders display/list of authors
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -19,7 +21,7 @@ const Main = (props) => {
             })
             .catch(error => console.log(error));
     }, [id]);
-
+// pay attention to id spelling/punc
     const removeFromDom = id => {
         setAuthors(authors.filter(authors => authors._id != id));
     }

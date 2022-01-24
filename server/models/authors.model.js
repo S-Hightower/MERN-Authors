@@ -1,3 +1,5 @@
+//server validations added here
+
 const mongoose = require('mongoose');
 
 const AuthorSchema = new mongoose.Schema({

@@ -1,3 +1,6 @@
+//renders author form for init author creation
+//validation applied
+
 import React, { useState } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -26,7 +29,8 @@ const Create = (props) => {
                 setErrors(errorArr);
             });
     };
-
+// history push goes within dot then
+// REMEMBER handlesubmit res
     return (
         <div>
             {errors.map((error, index) => <p key={index} className="text-danger">🚩{error}🚩</p>)}

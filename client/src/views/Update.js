@@ -1,3 +1,6 @@
+//renders form to update listed author
+//validations applied
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useHistory} from 'react-router-dom';

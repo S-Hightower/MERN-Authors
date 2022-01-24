@@ -39,7 +39,7 @@ const AuthorDisplay = props => {
                             <td>{author.name}</td>
                             <td>
                                 <EditButton id={author._id} />
-                                <button onClick={e => {deleteAuthor(author._id)}} className="btn btn-outline-danger btn-sm">Delete</button>
+                                <button onClick={e => {deleteAuthor(author._id)}} className="btn btn-outline-danger btn-sm ms-1">Delete</button>
                             </td>
                             </tr>
                         </tbody>)
