@@ -6,7 +6,7 @@ const EditButton = props => {
     const {id} = props;
 
     const updatePage = () => {
-        history.push('/api/authors/${id}/edit');
+        history.push(`/api/authors/${id}/edit`);
     }
 
     return(

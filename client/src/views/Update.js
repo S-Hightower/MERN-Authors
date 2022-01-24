@@ -6,7 +6,7 @@ import AuthorForm from "../components/AuthorForm";
 
 const Update = _props => {
     const {id} = useParams();
-    const [name, setName] = useState("");
+    const [author, setAuthor] = useState({});
     const [loaded, setLoaded] = useState(false);
     const [errors, setErrors] = useState([]);
     const history = useHistory();
@@ -14,18 +14,16 @@ const Update = _props => {
     useEffect(() => {
         axios.get(`http://localhost:8000/api/authors/${id}`)
             .then(res => {
-                setName(res.data)
+                setAuthor(res.data)
                 setLoaded(true)
             })
             .catch(error => console.log(error));
     }, [id]);
 
-    const handleSubmit = (e, name) => {
+    const handleSubmit = (e, data) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:8000/api/authors/${id}/edit`, {
-            name
-        })
+        axios.put(`http://localhost:8000/api/authors/${id}/edit`, data)
             .then(res => console.log(res))
             .catch(error => {
                 const errorResponse = error.response.data.errors;
@@ -41,9 +39,9 @@ const Update = _props => {
     return(
         <div>
             {errors.map((error, index) => <p key={index}>{error}</p>)}
-            {loaded && (
-            <AuthorForm onSubmit={handleSubmit} initName={name} />
-            )}
+            {loaded && 
+            <AuthorForm onSubmit={handleSubmit} initName={author.name} />
+            }
         </div>
     )
 };

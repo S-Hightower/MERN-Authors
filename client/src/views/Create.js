@@ -13,7 +13,10 @@ const Create = (props) => {
         e.preventDefault();
 
         axios.post('http://localhost:8000/api/new', data)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                history.push('/')
+            })
             .catch(error => {
                 const errorResponse = error.response.data.errors;
                 const errorArr = [];
@@ -22,7 +25,6 @@ const Create = (props) => {
                 }
                 setErrors(errorArr);
             });
-    history.push('/');
     };
 
     return (
