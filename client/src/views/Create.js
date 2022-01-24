@@ -29,7 +29,7 @@ const Create = (props) => {
 
     return (
         <div>
-            {errors.map((error, index) => <p key={index}>{error}</p>)}
+            {errors.map((error, index) => <p key={index} className="text-danger">🚩{error}🚩</p>)}
             <AuthorForm handleSubmit={handleSubmit} initName='' />
         </div>
     )

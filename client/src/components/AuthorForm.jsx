@@ -12,7 +12,10 @@ const AuthorForm = (props) => {
         <div className="container-sm mt-3 mb-5">
             <h1>🖋Favorite Authors📚</h1>
             <div>
-                <Link to={'/'}>
+                <Link
+                className="btn btn btn-success btn-sm"
+                role="button"
+                to={'/'}>
                     Home
                 </Link>
             </div>

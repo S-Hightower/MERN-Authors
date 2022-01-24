@@ -16,16 +16,18 @@ const Authors = require("../models/authors.model");
 
     //Create
     module.exports.createAuthor = (req, res) => {
-        Authors.create(req.body)
+        const {name} = req.body;
+        Authors.create({name})
             .then(newAuthor => res.json(newAuthor))
             .catch(err => res.status(400).json(err));
     };
 
     //Update
     module.exports.updateAuthor = (req, res) => {
-        Authors.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
+        const {name} = req.body;
+        Authors.findOneAndUpdate({_id: req.params.id}, {name}, {new:true,runValidators: true})
             .then(updatedAuthor => res.json(updatedAuthor))
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     };
 
     //Delete
