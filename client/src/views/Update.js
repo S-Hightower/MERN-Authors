@@ -4,7 +4,7 @@ import { useParams, useHistory} from 'react-router-dom';
 
 import AuthorForm from "../components/AuthorForm";
 
-const Update = props => {
+const Update = _props => {
     const {id} = useParams();
     const [name, setName] = useState("");
     const [loaded, setLoaded] = useState(false);
@@ -20,8 +20,9 @@ const Update = props => {
             .catch(error => console.log(error));
     }, [id]);
 
-    const updateAuthor = e => {
+    const handleSubmit = (e, name) => {
         e.preventDefault();
+        
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, {
             name
         })
@@ -41,7 +42,7 @@ const Update = props => {
         <div>
             {errors.map((error, index) => <p key={index}>{error}</p>)}
             {loaded && (
-            <AuthorForm onSubmit={updateAuthor} initName={props.author.name} />
+            <AuthorForm onSubmit={handleSubmit} initName={name} />
             )}
         </div>
     )

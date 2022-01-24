@@ -16,7 +16,7 @@ const Main = (props) => {
                 console.log(res.data);
             })
             .catch(error => console.log(error));
-    }, [authors]);
+    }, []);
 
     const removeFromDom = id => {
         setAuthors(authors.filter(authors => authors._id != id));
