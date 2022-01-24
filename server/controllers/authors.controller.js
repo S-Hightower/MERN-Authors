@@ -24,7 +24,7 @@ const Authors = require("../models/authors.model");
     //Update
     module.exports.updateAuthor = (req, res) => {
         Authors.findOneAndUpdate({_id: req.params.id}, req.body, {new:true})
-            .then(result => res.json(updatedAuthor))
+            .then(updatedAuthor => res.json(updatedAuthor))
             .catch(err => res.json(err));
     };
 

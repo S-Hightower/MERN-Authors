@@ -22,9 +22,12 @@ const Update = _props => {
 
     const handleSubmit = (e, data) => {
         e.preventDefault();
-
+        console.log(data)
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, data)
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                history.push('/')
+            })
             .catch(error => {
                 const errorResponse = error.response.data.errors;
                 const errorArr = [];
@@ -33,14 +36,13 @@ const Update = _props => {
                 }
                 setErrors(errorArr);
             });
-        history.push('/');
     }
 
     return(
         <div>
             {errors.map((error, index) => <p key={index}>{error}</p>)}
             {loaded && 
-            <AuthorForm onSubmit={handleSubmit} initName={author.name} />
+            <AuthorForm handleSubmit={handleSubmit} initName={author.name} />
             }
         </div>
     )
