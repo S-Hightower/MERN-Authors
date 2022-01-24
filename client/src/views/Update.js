@@ -22,7 +22,7 @@ const Update = _props => {
 
     const handleSubmit = (e, name) => {
         e.preventDefault();
-        
+
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, {
             name
         })
@@ -34,7 +34,7 @@ const Update = _props => {
                     errorArr.push(errorResponse[key].message)
                 }
                 setErrors(errorArr);
-            })
+            });
         history.push('/');
     }
 
