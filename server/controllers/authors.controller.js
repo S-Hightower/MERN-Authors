@@ -35,6 +35,6 @@ const Authors = require("../models/authors.model");
     //Delete
     module.exports.deleteAuthor = (req, res) => {
         Authors.deleteOne({_id: req.params.id})
-            .then(result => res.json(deletedAuthor))
+            .then(deletedAuthor => res.json(deletedAuthor))
             .catch(err => res.json(err));
     };

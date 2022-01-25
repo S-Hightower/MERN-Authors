@@ -17,7 +17,7 @@ const Create = (props) => {
 
         axios.post('http://localhost:8000/api/new', data)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 history.push('/')
             })
             .catch(error => {

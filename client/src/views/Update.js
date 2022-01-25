@@ -28,7 +28,7 @@ const Update = _props => {
         console.log(data)
         axios.put(`http://localhost:8000/api/authors/${id}/edit`, data)
             .then(res => {
-                console.log(res)
+                console.log(res.data)
                 history.push('/')
             })
             .catch(error => {
